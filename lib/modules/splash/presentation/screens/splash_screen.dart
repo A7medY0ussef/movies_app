@@ -1,6 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/modules/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:movies_app/modules/onboarding/presentation/screens/onboarding_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
