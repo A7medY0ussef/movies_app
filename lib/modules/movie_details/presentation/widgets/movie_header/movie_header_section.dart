@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+import 'package:movie_app/core/constants/assets.dart';
+import 'package:movie_app/core/theme/app_colors.dart';
+import 'package:movie_app/core/theme/app_text_style.dart';
+import 'package:movie_app/core/widgets/custom_button.dart';
+import 'package:movie_app/core/widgets/gradient_background_container.dart';
+import 'package:movie_app/modules/movie_details/presentation/widgets/movie_header/header_app_bar.dart';
+import 'package:movie_app/modules/movie_details/presentation/widgets/movie_header/movie_stats_row.dart';
+
+class MovieHeaderSection extends StatelessWidget {
+  const MovieHeaderSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GradientBackgroundContainer(
+      image: AssetImage(Assets.bgMovieDetails),
+      height: 645.h,
+      beginGradient: 0.20,
+      endGradient: 0.60,
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              HeaderAppBar(),
+              Spacer(),
+              Image.asset(Assets.startWatch),
+              Spacer(),
+              Text(
+                'Doctor Strange in the Multiverse \nof Madness',
+                textAlign: TextAlign.center,
+                style: AppText.s24w6.copyWith(color: AppColors.white),
+              ),
+              SizedBox(height: 15),
+              Text(
+                '2022',
+                style: AppText.s20w6.copyWith(color: AppColors.lightGrey),
+              ),
+              SizedBox(height: 8),
+              CustomButton(
+                title: 'Watch',
+                bgColor: AppColors.red,
+                fgColor: AppColors.white,
+              ),
+              SizedBox(height: 16),
+              MovieStatsRow(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
