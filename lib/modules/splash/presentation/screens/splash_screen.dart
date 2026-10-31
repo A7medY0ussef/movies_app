@@ -1,6 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/modules/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:movies_app/modules/layout/presentation/screens/lauout_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -28,7 +28,7 @@ class SplashScreen extends StatelessWidget {
               onFinish: (direction) {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => OnboardingScreen()),
+                  MaterialPageRoute(builder: (context) => LauoutScreen()),
                 );
               },
               child: Image.asset('assets/logo/Supervised by Mohamed Nabil.png'),
