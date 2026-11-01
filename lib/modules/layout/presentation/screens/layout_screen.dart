@@ -18,8 +18,8 @@ List<Widget> listWidgets = [
   ProfileScreen(),
 ];
 
-class LauoutScreen extends StatelessWidget {
-  const LauoutScreen({super.key});
+class LayoutScreen extends StatelessWidget {
+  const LayoutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

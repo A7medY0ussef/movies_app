@@ -1,6 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/modules/layout/presentation/screens/lauout_screen.dart';
+import 'package:movies_app/modules/layout/presentation/screens/layout_screen.dart';
 import 'package:movies_app/modules/onboarding/presentation/screens/start_screen.dart';
 
 class SplashScreen extends StatelessWidget {
