@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/modules/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/routes/route_name.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -26,10 +27,7 @@ class SplashScreen extends StatelessWidget {
             FadeInUp(
               delay: Duration(seconds: 2),
               onFinish: (direction) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => OnboardingScreen()),
-                );
+                context.go(RouteName.start);
               },
               child: Image.asset('assets/logo/Supervised by Mohamed Nabil.png'),
             ),

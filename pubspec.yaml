@@ -23,6 +23,7 @@ dependencies:
   flutter_bloc: ^9.1.1
   cached_network_image: ^4.0.3
   flutter_screenutil_plus: ^1.6.0
+  injectable: ^3.0.0
 
 dev_dependencies:
   flutter_test:
