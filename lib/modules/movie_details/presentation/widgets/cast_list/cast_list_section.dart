@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/constants/assets.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/theme/app_text_style.dart';
+import 'package:movie_app/modules/movie_details/domain/entities/cast_entity.dart';
 import 'package:movie_app/modules/movie_details/presentation/widgets/cast_list/cast_card.dart';
 
 class CastListSection extends StatelessWidget {
-  const CastListSection({super.key});
+  final List<CastEntity> cast;
+  const CastListSection({super.key, required this.cast});
 
   @override
   Widget build(BuildContext context) {
+    if (cast.isEmpty) return const SizedBox.shrink();
+
     return Padding(
       padding: const EdgeInsets.all(12),
       child: Column(
@@ -20,9 +23,15 @@ class CastListSection extends StatelessWidget {
             padding: EdgeInsets.zero,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: 3,
-            itemBuilder: (context, index) =>
-                CastCard(image: Assets.personInMovieDetails, name: 'ahmed'),
+            itemCount: cast.length,
+            itemBuilder: (context, index) {
+              final member = cast[index];
+              return CastCard(
+                name: member.name,
+                character: member.characterName,
+                image: member.urlSmallImage,
+              );
+            },
           ),
         ],
       ),

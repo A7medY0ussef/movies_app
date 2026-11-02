@@ -18,7 +18,9 @@ class CustomGenres extends StatelessWidget {
       child: Center(
         child: Text(
           genre,
-          style: AppText.s16w5.copyWith(color: AppColors.white),
+          maxLines: 1,
+          style: AppText.s16w5.copyWith(color: AppColors.white,
+              overflow: TextOverflow.ellipsis),
         ),
       ),
     );

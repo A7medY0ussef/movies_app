@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/routes/route_name.dart';
 import 'package:movie_app/core/utils/size_config.dart';
 import 'package:movie_app/modules/layout/home/domain/entities/movie_entity.dart';
 import 'package:movie_app/modules/layout/home/presentation/widgets/movie_card.dart';
@@ -19,6 +21,9 @@ class MoviesSection extends StatelessWidget {
         itemBuilder: (context, index) => AspectRatio(
           aspectRatio: 2 / 3,
           child: MovieCard(
+            onTap: () => context.push(
+              RouteName.movieDetailsWithId(actionMovies[index].id),
+            ),
             image: actionMovies[index].image,
             rating: actionMovies[index].rating,
           ),

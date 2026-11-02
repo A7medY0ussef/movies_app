@@ -4,7 +4,8 @@ import 'package:movie_app/core/theme/app_text_style.dart';
 import 'package:movie_app/modules/movie_details/presentation/widgets/genres_chips/custom_genres.dart';
 
 class GenresChipsSection extends StatelessWidget {
-  const GenresChipsSection({super.key});
+  final List<String> genres;
+  const GenresChipsSection({super.key, required this.genres});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class GenresChipsSection extends StatelessWidget {
               padding: EdgeInsets.zero,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: 5,
+              itemCount: genres.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 crossAxisSpacing: 16,
@@ -32,7 +33,7 @@ class GenresChipsSection extends StatelessWidget {
                 childAspectRatio: 122 / 36,
               ),
               itemBuilder: (context, index) =>  CustomGenres(
-               genre: 'Action',
+               genre: genres[index],
               ),
             ),
           ],

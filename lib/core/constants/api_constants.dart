@@ -12,4 +12,9 @@ abstract final class ApiConstants {
   static const String genre = 'genre';
   static const String sortBy = 'sort_by';
   static const String queryTerm = 'query_term';
+  // Movie Details
+  static const String movieId = 'movie_id';
+  static const String withImages = 'with_images';
+  static const String withCast = 'with_cast';
+
 }

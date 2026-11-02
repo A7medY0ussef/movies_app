@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomScreenshots extends StatelessWidget {
@@ -12,7 +13,7 @@ class CustomScreenshots extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         image: DecorationImage(
-          image: AssetImage(screenShot),
+          image: CachedNetworkImageProvider(screenShot),
           fit: BoxFit.cover,
         ),
       ),
