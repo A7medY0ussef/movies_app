@@ -42,7 +42,7 @@ class SimilarMoviesSection extends StatelessWidget {
                           crossAxisCount: 2,
                           crossAxisSpacing: 16,
                           mainAxisSpacing: 16,
-                          childAspectRatio: 0.68,
+                          childAspectRatio: 0.75,
                         ),
                     itemBuilder: (context, index) {
                       final movie = state.similarMovie[index];
