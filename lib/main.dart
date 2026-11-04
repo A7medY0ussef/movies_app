@@ -48,10 +48,10 @@ final GoRouter _router = GoRouter(
       },
       routes: <RouteBase>[
         GoRoute(
-          path: 'onboarding',
-          builder: (context, state) {
-            return const OnboardingScreen();
-          },
+           path: 'onboarding',
+          // builder: (context, state) {
+          //   return const OnboardingScreen();
+          // },
           routes: <RouteBase>[
             GoRoute(
               path: 'login',
