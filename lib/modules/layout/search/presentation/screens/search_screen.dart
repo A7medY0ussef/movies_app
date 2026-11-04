@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
@@ -35,7 +36,7 @@ class SearchScreen extends StatelessWidget {
                     filled: true,
 
                     prefixIcon: Image.asset(Assets.icSearch),
-                    hintText: 'Search',
+                    hintText: 'search.hint'.tr(),
                     hintStyle: TextStyle(color: AppColors.white),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: .circular(16.r),
@@ -48,7 +49,7 @@ class SearchScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 16.h),
-                Expanded(child: _buildResults(state, cubit)),
+                Expanded(child: _buildResults(state, cubit, context)),
               ],
             ),
           );
@@ -58,16 +59,20 @@ class SearchScreen extends StatelessWidget {
   }
 }
 
-Widget _buildResults(SearchState state, SearchCubit cubit) {
+Widget _buildResults(
+  SearchState state,
+  SearchCubit cubit,
+  BuildContext context,
+) {
   if (state is SearchStateLoading) {
     return Center(child: CircularProgressIndicator(color: AppColors.white));
   }
   if (state is SearchStateSuccess) {
     if (cubit.resultSearch.isEmpty) {
-      return const Center(
+      return Center(
         child: Text(
-          'No movies found',
-          style: TextStyle(color: Colors.white, fontSize: 24),
+          'search.no_results'.tr(context: context),
+          style: const TextStyle(color: Colors.white, fontSize: 24),
         ),
       );
     }
@@ -94,7 +99,11 @@ Widget _buildResults(SearchState state, SearchCubit cubit) {
   }
   if (state is SearchStateError) {
     return Center(
-      child: Text(state.message, style: TextStyle(color: AppColors.white)),
+      child: Text(
+        state.message.tr(),
+        textAlign: TextAlign.center,
+        style: TextStyle(color: AppColors.white),
+      ),
     );
   }
   return const SizedBox.shrink();

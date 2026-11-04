@@ -16,7 +16,6 @@ dependencies:
   animate_do: ^5.1.0
   carousel_slider: ^5.1.2
   go_router: ^18.1.1
-  easy_localizer: ^0.0.1
   dio: ^5.11.1
   dartz: ^0.10.1
   get_it: ^9.3.0
@@ -24,6 +23,7 @@ dependencies:
   cached_network_image: ^4.0.3
   flutter_screenutil_plus: ^1.6.0
   injectable: ^3.0.0
+  easy_localization: ^3.0.8
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +41,7 @@ flutter:
     - assets/icons/
     - assets/images/home_images/
     - assets/images/movie_details/
+    - assets/translations/
 
 
   # fonts:

@@ -1,0 +1,82 @@
+{
+  "common": {
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish",
+    "see_more": "See More"
+  },
+  "start": {
+    "title": "Find Your Next\nFavorite Movie Here",
+    "subtitle": "Get access to a huge library of movies to suit all tastes. You will surely like it.",
+    "explore_now": "Explore Now"
+  },
+  "onboarding": {
+    "discover_title": "Discover Movies",
+    "discover_desc": "Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.",
+    "genres_title": "Explore All Genres",
+    "genres_desc": "Discover movies from every genre, in all available qualities. Find something new and exciting to watch every day.",
+    "watchlist_title": "Create Watchlists",
+    "watchlist_desc": "Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.",
+    "review_title": "Rate, Review, and Learn",
+    "review_desc": "Share your thoughts on the movies you've watched. Dive deep into film details and help others discover great movies with your reviews.",
+    "start_title": "Start Watching Now"
+  },
+  "nav": {
+    "home": "Home",
+    "search": "Search",
+    "browse": "Browse",
+    "profile": "Profile"
+  },
+  "home": {
+    "action": "Action"
+  },
+  "details": {
+    "watch": "Watch",
+    "summary": "Summary",
+    "no_summary": "No summary available",
+    "screenshots": "Screen Shots",
+    "similar": "Similar",
+    "cast": "Cast",
+    "cast_name": "Name: {}",
+    "cast_character": "Character: {}",
+    "genres": "Genres"
+  },
+  "search": {
+    "hint": "Search",
+    "no_results": "No movies found"
+  },
+  "genres_list": {
+    "Animation": "Animation",
+    "Adventure": "Adventure",
+    "Action": "Action",
+    "Crime": "Crime",
+    "Comedy": "Comedy",
+    "Biography": "Biography",
+    "Family": "Family",
+    "Drama": "Drama",
+    "Documentary": "Documentary",
+    "Game-Show": "Game-Show",
+    "Film-Noir": "Film-Noir",
+    "Fantasy": "Fantasy",
+    "Music": "Music",
+    "Horror": "Horror",
+    "History": "History",
+    "News": "News",
+    "Mystery": "Mystery",
+    "Musical": "Musical",
+    "Sci-Fi": "Sci-Fi",
+    "Romance": "Romance",
+    "Reality-TV": "Reality-TV",
+    "Talk-Show": "Talk-Show",
+    "Sport": "Sport",
+    "Short": "Short",
+    "Western": "Western",
+    "War": "War",
+    "Thriller": "Thriller"
+  },
+  "errors": {
+    "network": "Please check your internet connection and try again",
+    "server": "Something went wrong on the server. Please try again later",
+    "unknown": "Something went wrong. Please try again"
+  }
+}

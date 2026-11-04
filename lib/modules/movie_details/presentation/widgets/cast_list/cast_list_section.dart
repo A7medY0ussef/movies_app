@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/theme/app_text_style.dart';
@@ -17,7 +18,7 @@ class CastListSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Cast', style: AppText.s24w6.copyWith(color: AppColors.white)),
+          Text('details.cast'.tr(), style: AppText.s24w6.copyWith(color: AppColors.white)),
           const SizedBox(height: 4),
           ListView.builder(
             padding: EdgeInsets.zero,

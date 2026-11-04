@@ -15,18 +15,11 @@ class SearchRepoImp implements SearchRepo {
 
   @override
   Future<List<Movie>?> resultSearch(String query) async {
-    try {
-      var respons = await remoteDataSource.resultSearch(query);
-      if (respons.statusCode == 200) {
-        var responsMovies = ResponseMovies.fromJson(respons.data);
-
-        return responsMovies.data?.movies ?? [];
-      } else {
-        throw respons.data['message'];
-      }
-    } catch (e) {
-      rethrow;
+    final response = await remoteDataSource.resultSearch(query);
+    if (response.statusCode == 200) {
+      final responseMovies = ResponseMovies.fromJson(response.data);
+      return responseMovies.data?.movies ?? [];
     }
-    return null;
+    throw response.data['message'];
   }
 }

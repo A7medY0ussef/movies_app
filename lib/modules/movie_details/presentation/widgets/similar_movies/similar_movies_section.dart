@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -28,7 +29,7 @@ class SimilarMoviesSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Similar',
+                    'details.similar'.tr(),
                     style: AppText.s24w6.copyWith(color: AppColors.white),
                   ),
                   const SizedBox(height: 12),

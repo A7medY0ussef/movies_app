@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/theme/app_text_style.dart';
@@ -17,7 +18,7 @@ class GenresChipsSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Genres',
+              'details.genres'.tr(),
               style: AppText.s24w6.copyWith(color: AppColors.white),
             ),
             SizedBox(height: 4),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
@@ -14,13 +15,17 @@ class SectionBody extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Action', style: AppText.s20w4.copyWith(color: AppColors.white)),
+          Text(
+            'home.action'.tr(),
+            style: AppText.s20w4.copyWith(color: AppColors.white),
+          ),
           GestureDetector(
-            onTap: () => context.read<LayoutCubit>().onChangeScreen(2),            child: Row(
+            onTap: () => context.read<LayoutCubit>().onChangeScreen(2),
+            child: Row(
               spacing: 4,
               children: [
                 Text(
-                  'See More',
+                  'common.see_more'.tr(),
                   style: AppText.s16w4.copyWith(color: AppColors.primary),
                 ),
                 const Icon(

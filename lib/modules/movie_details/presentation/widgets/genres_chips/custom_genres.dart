@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/constants/app_genres.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/theme/app_text_style.dart';
 
@@ -17,7 +18,7 @@ class CustomGenres extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          genre,
+          AppGenres.label(genre),
           maxLines: 1,
           style: AppText.s16w5.copyWith(color: AppColors.white,
               overflow: TextOverflow.ellipsis),

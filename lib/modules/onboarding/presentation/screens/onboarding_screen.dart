@@ -1,10 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/routes/route_name.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/theme/app_text_style.dart';
-import 'package:movie_app/modules/layout/layout_screen.dart';
 import 'package:movie_app/modules/onboarding/presentation/onboarding_model.dart';
 import 'package:movie_app/modules/onboarding/presentation/widgets/body_onboarding.dart';
 
@@ -48,13 +48,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  OnboardingModel.listOnboard[currentIndex].title,
+                  OnboardingModel.listOnboard[currentIndex].title.tr(),
                   style: AppText.s24wB.copyWith(color: Colors.white),
                 ),
                 SizedBox(height: 20.h),
                 if (OnboardingModel.listOnboard[currentIndex].desc != null)
                   Text(
-                    OnboardingModel.listOnboard[currentIndex].desc!,
+                    OnboardingModel.listOnboard[currentIndex].desc!.tr(),
                     textAlign: TextAlign.center,
                     style: AppText.s20w4.copyWith(
                       color: Colors.white.withValues(alpha: 0.6),
@@ -80,8 +80,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: Center(
                     child: Text(
                       currentIndex == OnboardingModel.listOnboard.length - 1
-                          ? 'Finish'
-                          : 'Next',
+                          ? 'common.finish'.tr()
+                          : 'common.next'.tr(),
                       style: AppText.s20w6,
                     ),
                   ),
@@ -104,7 +104,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         curve: Curves.easeOut,
                       );
                     },
-                    child: Center(child: Text('Back', style: AppText.s20w6)),
+                    child: Center(child: Text('common.back'.tr(), style: AppText.s20w6)),
                   ),
               ],
             ),

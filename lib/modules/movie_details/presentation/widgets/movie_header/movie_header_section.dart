@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:movie_app/core/constants/assets.dart';
@@ -45,7 +46,7 @@ class MovieHeaderSection extends StatelessWidget {
                 ),
               SizedBox(height: 8),
               CustomButton(
-                title: 'Watch',
+                title: 'details.watch'.tr(),
                 bgColor: AppColors.red,
                 fgColor: AppColors.white,
               ),

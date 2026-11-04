@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movie_app/core/errors/error_handler.dart';
 import 'package:movie_app/modules/layout/data/model/movie.dart';
 import 'package:movie_app/modules/layout/search/data/repo/search_repo.dart';
 import 'package:movie_app/modules/layout/search/presentation/manager/search_state.dart';
-
 
 @injectable
 class SearchCubit extends Cubit<SearchState> {
@@ -30,8 +30,7 @@ class SearchCubit extends Cubit<SearchState> {
       emit(SearchStateSuccess());
     } catch (e) {
       if (requestId != _requestId) return;
-
-      emit(SearchStateError(e.toString()));
+      emit(SearchStateError(handleError(e).message));
     }
   }
 

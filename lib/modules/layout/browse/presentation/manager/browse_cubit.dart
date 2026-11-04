@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movie_app/core/errors/error_handler.dart';
 import 'package:movie_app/modules/layout/browse/data/repo/browse_repo.dart';
 import 'package:movie_app/modules/layout/browse/presentation/manager/browse_state.dart';
 import 'package:movie_app/modules/layout/data/model/movie.dart';
@@ -54,7 +55,7 @@ class BrowseCubit extends Cubit<BrowseState> {
       moviesOfGenre = await repo.getMoviesByGenre(genre) ?? [];
       emit(GenreStateSuccess());
     } catch (e) {
-      emit(GenreStateError(e.toString()));
+      emit(GenreStateError(handleError(e).message));
     }
   }
 }

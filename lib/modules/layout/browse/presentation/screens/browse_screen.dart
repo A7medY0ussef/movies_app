@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/constants/app_genres.dart';
 import 'package:movie_app/core/di/service_locator.dart';
 import 'package:movie_app/core/routes/route_name.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
@@ -16,7 +18,7 @@ class BrowseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => getIt<BrowseCubit>(),
+      create: (_) => getIt<BrowseCubit>()..onChangeGenre(0),
       child: BlocBuilder<BrowseCubit, BrowseState>(
         builder: (context, state) {
           var cubit = BlocProvider.of<BrowseCubit>(context);
@@ -52,7 +54,7 @@ class BrowseScreen extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          cubit.genre[index],
+                          AppGenres.label(cubit.genre[index]),
                           style: AppText.s20wB.copyWith(fontWeight: .w700),
                         ),
                       );
@@ -61,7 +63,7 @@ class BrowseScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              Expanded(child: _buildResults(state, cubit)),
+              Expanded(child: _buildResults(state, cubit, context)),
             ],
           );
         },
@@ -70,13 +72,17 @@ class BrowseScreen extends StatelessWidget {
   }
 }
 
-Widget _buildResults(BrowseState state, BrowseCubit cubit) {
+Widget _buildResults(
+  BrowseState state,
+  BrowseCubit cubit,
+  BuildContext context,
+) {
   if (state is GenreStateLoading) {
     return Center(child: CircularProgressIndicator(color: AppColors.white));
   }
   if (state is GenreStateSuccess) {
     if (cubit.moviesOfGenre.isEmpty) {
-      return const Center(child: Text('No movies found'));
+      return Center(child: Text('search.no_results'.tr(context: context),style: const TextStyle(color: Colors.white, fontSize: 24)));
     }
     return GridView.builder(
       itemCount: cubit.moviesOfGenre.length,
@@ -101,7 +107,11 @@ Widget _buildResults(BrowseState state, BrowseCubit cubit) {
   }
   if (state is GenreStateError) {
     return Center(
-      child: Text(state.message, style: TextStyle(color: AppColors.white)),
+      child: Text(
+        state.message.tr(),
+        textAlign: TextAlign.center,
+        style: TextStyle(color: AppColors.white),
+      ),
     );
   }
   return const SizedBox.shrink();
