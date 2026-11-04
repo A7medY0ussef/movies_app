@@ -71,7 +71,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   onPressed: () {
                     currentIndex == OnboardingModel.listOnboard.length - 1
-                        ? context.go(RouteName.layout)
+                        ? context.go(RouteName.login)
                         : controller.nextPage(
                             duration: Duration(milliseconds: 300),
                             curve: Curves.easeIn,

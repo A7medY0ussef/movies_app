@@ -85,7 +85,7 @@
   "forget_password": "Forget Password ?",
   "login": "Login",
   "dont_have_account": "Don't Have Account ?",
-  "create_one": " Create One",
+  "create_one": "Create One",
   "or": "OR",
   "login_with_google": "Login With Google",
   "register": "Register",
@@ -96,5 +96,24 @@
   "already_have_account": "Already Have Account?",
   "verify_email": "Verify Email",
   "forget_password_for_app_Bar": "Forget Password"
-}
+},
+  "validation": {
+    "email_required": "Please enter your email",
+    "email_invalid": "Please enter a valid email",
+    "password_required": "Please enter your password",
+    "password_min": "Password must be at least 6 characters",
+    "confirm_password_required": "Please confirm your password",
+    "passwords_not_match": "Passwords do not match",
+    "name_required": "Please enter your name",
+    "phone_required": "Please enter your phone number",
+    "phone_invalid": "Please enter a valid phone number",
+    "avatar_required": "Please select an avatar"
+  },
+  "messages": {
+    "login_success": "Login successful",
+    "google_login_success": "Google login successful",
+    "register_success": "Account created successfully",
+    "reset_email_sent": "Password reset email sent successfully",
+    "select_avatar": "Please select an avatar"
+  }
 }

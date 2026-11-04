@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/routes/route_name.dart';
 
 import '../../../../../core/constants/assets.dart';
 import '../../../../../core/theme/app_colors.dart';
@@ -46,18 +47,20 @@ class _LoginScreenState extends State<LoginScreen> {
                   state.messageType == AuthMessageType.loginSuccess) {
                 CustomSnackBar.show(
                   context,
-                  message: 'Login successful',
+                  message: 'messages.login_success'.tr(),
                   type: SnackBarType.success,
                 );
+                context.go(RouteName.layout);
               }
 
               if (state is AuthSuccess &&
                   state.messageType == AuthMessageType.googleLoginSuccess) {
                 CustomSnackBar.show(
                   context,
-                  message: 'Google login successful',
+                  message: 'messages.google_login_success'.tr(),
                   type: SnackBarType.success,
                 );
+                context.go(RouteName.layout);
               }
 
               if (state is AuthFailure) {
@@ -90,18 +93,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     CustomTextFormField(
                       prefixIcon: Assets.emailIcon,
-                      hintText: 'email'.tr(),
+                      hintText: 'auth.email'.tr(),
                       isPassword: false,
                       controller: emailController,
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Please enter your email';
+                          return 'validation.email_required'.tr();
                         }
 
                         if (!RegExp(
                           r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
                         ).hasMatch(value.trim())) {
-                          return 'Please enter a valid email';
+                          return 'validation.email_invalid'.tr();
                         }
 
                         return null;
@@ -112,12 +115,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     CustomTextFormField(
                       prefixIcon: Assets.passwordIcon,
-                      hintText: 'password'.tr(),
+                      hintText: 'auth.password'.tr(),
                       isPassword: true,
                       controller: passwordController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
+                          return 'validation.password_required'.tr();
                         }
 
                         return null;
@@ -131,11 +134,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: TextButton(
                         onPressed: isAnyLoginLoading
                             ? null
-                            : () => context.go(
-                          '/onboarding/login/register/forgetPassword',
+                            : () => context.push(
+                         RouteName.forgetPassword,
                         ),
                         child: Text(
-                          'forget_password'.tr(),
+                          'auth.forget_password'.tr(),
                           style: TextStyle(
                             color: AppColors.primary,
                             fontSize: AppText.s14w4.fontSize,
@@ -181,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         )
                             : Text(
-                          'login'.tr(),
+                          'auth.login'.tr(),
                           style: AppText.s20w4,
                         ),
                       ),
@@ -193,7 +196,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'dont_have_account'.tr(),
+                          'auth.dont_have_account'.tr(),
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: AppText.s14w4.fontSize,
@@ -201,10 +204,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         GestureDetector(
                           onTap: () => context.go(
-                            '/onboarding/login/register',
+                            RouteName.register,
                           ),
                           child: Text(
-                            'create_one'.tr(),
+                            'auth.create_one'.tr(),
                             style: AppText.s14w4.copyWith(
                               fontWeight: FontWeight.w900,
                               color: AppColors.primary,
@@ -227,7 +230,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: Text(
-                            'or'.tr(),
+                            'auth.or'.tr(),
                             style: const TextStyle(
                               color: Color(0xFFFFC107),
                             ),
@@ -280,7 +283,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             const SizedBox(width: 10),
                             Text(
-                              'login_with_google'.tr(),
+                              'auth.login_with_google'.tr(),
                               style: AppText.s16w4,
                             ),
                           ],

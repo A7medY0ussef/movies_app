@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/routes/route_name.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/theme/app_text_style.dart';
 
@@ -39,7 +40,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         title: Text(
-          'forget_password_for_app_Bar'.tr(),
+          'auth.forget_password_for_app_Bar'.tr(),
           style: AppText.s16w4,
         ),
       ),
@@ -53,11 +54,11 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     AuthMessageType.forgetPasswordSuccess) {
               CustomSnackBar.show(
                 context,
-                message: 'Password reset email sent successfully',
+                message: 'messages.reset_email_sent'.tr(),
                 type: SnackBarType.success,
               );
 
-              context.go('/onboarding/login');
+              context.go(RouteName.login);
             }
 
             if (state is AuthFailure) {
@@ -82,18 +83,18 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
                   CustomTextFormField(
                     prefixIcon: Assets.emailIcon,
-                    hintText: 'email'.tr(),
+                    hintText: 'auth.email'.tr(),
                     isPassword: false,
                     controller: emailController,
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
-                        return 'Please enter your email';
+                        return 'validation.email_required'.tr();
                       }
 
                       if (!RegExp(
                         r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
                       ).hasMatch(value.trim())) {
-                        return 'Please enter a valid email';
+                        return 'validation.email_invalid'.tr();
                       }
 
                       return null;
@@ -137,7 +138,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                         ),
                       )
                           : Text(
-                        'verify_email'.tr(),
+                        'auth.verify_email'.tr(),
                         style: AppText.s20w4,
                       ),
                     ),

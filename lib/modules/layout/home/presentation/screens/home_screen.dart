@@ -18,16 +18,14 @@ class HomeScreen extends StatelessWidget {
         body: BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {
             if (state is HomeSuccess) {
-              return SafeArea(
-                top: false,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      HomeHeader(availableNow: state.availableNow),
-                      const SizedBox(height: 30),
-                      HomeBody(actionMovies: state.actionMovies),
-                    ],
-                  ),
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    HomeHeader(availableNow: state.availableNow),
+                    const SizedBox(height: 30),
+                    HomeBody(actionMovies: state.actionMovies),
+
+                  ],
                 ),
               );
             }

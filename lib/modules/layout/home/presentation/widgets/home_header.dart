@@ -28,7 +28,7 @@ class _HomeHeaderState extends State<HomeHeader> {
       height: 0.75.sh,
       child: Column(
         children: [
-          const SizedBox(height: 18),
+
           Image.asset(Assets.availableNowHome),
           const SizedBox(height: 20),
           AvailableNowCarousel(

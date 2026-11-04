@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/routes/route_name.dart';
 
 import '../../../../../core/constants/assets.dart';
 import '../../../../../core/theme/app_colors.dart';
@@ -49,7 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       appBar: AppBar(
         foregroundColor: const Color(0xffF6BD00),
         centerTitle: true,
-        title: Text("register".tr(), style: AppText.s16w4),
+        title: Text('auth.register'.tr(), style: AppText.s16w4),
         backgroundColor: AppColors.background,
       ),
       body: SafeArea(
@@ -62,11 +63,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     state.messageType == AuthMessageType.registerSuccess) {
                   CustomSnackBar.show(
                     context,
-                    message: 'Account created successfully',
+                    message: 'messages.register_success'.tr(),
                     type: SnackBarType.success,
                   ).closed.then((_) {
                     if (context.mounted) {
-                      context.go('/login');
+                      context.go(RouteName.layout);
                     }
                   });
                 }
@@ -97,11 +98,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextFormField(
                         controller: nameController,
                         prefixIcon: Assets.nameIcon,
-                        hintText: 'name'.tr(),
+                        hintText: 'auth.name'.tr(),
                         isPassword: false,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter your name';
+                            return 'validation.name_required'.tr();
                           }
                           return null;
                         },
@@ -112,16 +113,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextFormField(
                         controller: emailController,
                         prefixIcon: Assets.emailIcon,
-                        hintText: 'email'.tr(),
+                        hintText: 'auth.email'.tr(),
                         isPassword: false,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter your email';
+                            return 'validation.email_required'.tr();
                           }
 
                           if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
                               .hasMatch(value.trim())) {
-                            return 'Please enter a valid email';
+                            return 'validation.email_invalid'.tr();
                           }
 
                           return null;
@@ -133,15 +134,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextFormField(
                         controller: passwordController,
                         prefixIcon: Assets.passwordIcon,
-                        hintText: 'password'.tr(),
+                        hintText: 'auth.password'.tr(),
                         isPassword: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your password';
+                            return 'validation.password_required'.tr();
                           }
 
                           if (value.length < 6) {
-                            return 'Password must be at least 6 characters';
+                            return 'validation.password_min'.tr();
                           }
 
                           return null;
@@ -153,15 +154,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextFormField(
                         controller: confirmPasswordController,
                         prefixIcon: Assets.passwordIcon,
-                        hintText: 'confirm_password'.tr(),
+                        hintText: 'auth.confirm_password'.tr(),
                         isPassword: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please confirm your password';
+                            return 'validation.confirm_password_required'.tr();
                           }
 
                           if (value != passwordController.text) {
-                            return 'Passwords do not match';
+                            return 'validation.passwords_not_match'.tr();
                           }
 
                           return null;
@@ -173,16 +174,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextFormField(
                         controller: phoneController,
                         prefixIcon: Assets.passwordIcon,
-                        hintText: 'phone_number'.tr(),
+                        hintText: 'auth.phone_number'.tr(),
                         isPassword: false,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter your phone number';
+                            return 'validation.phone_required'.tr();
                           }
 
                           if (!RegExp(r'^\+?[0-9]{8,15}$')
                               .hasMatch(value.trim())) {
-                            return 'Please enter a valid phone number';
+                            return 'validation.phone_invalid'.tr();
                           }
 
                           return null;
@@ -240,7 +241,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                             )
                                 : Text(
-                              'create_account'.tr(),
+                              'auth.create_account'.tr(),
                               style: AppText.s20w4,
                             ),
                         ),
@@ -252,7 +253,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "already_have_account".tr(),
+                            'auth.already_have_account'.tr(),
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: AppText.s14w4.fontSize,
@@ -260,9 +261,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           const SizedBox(width: 5),
                           GestureDetector(
-                            onTap: () => context.go('/onboarding/login'),
+                            onTap: () => context.go(RouteName.login),
                             child: Text(
-                              'login'.tr(),
+                              'auth.login'.tr(),
                               style: AppText.s14w4.copyWith(
                                 fontWeight: FontWeight.w900,
                                 color: AppColors.primary,

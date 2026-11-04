@@ -96,5 +96,24 @@
     "already_have_account": "لديك حساب بالفعل؟",
     "verify_email": "تأكيد البريد الإلكتروني",
     "forget_password_for_app_Bar": "نسيت كلمة المرور"
-}
+},
+  "validation": {
+    "email_required": "من فضلك أدخل بريدك الإلكتروني",
+    "email_invalid": "من فضلك أدخل بريدًا إلكترونيًا صحيحًا",
+    "password_required": "من فضلك أدخل كلمة المرور",
+    "password_min": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
+    "confirm_password_required": "من فضلك أكّد كلمة المرور",
+    "passwords_not_match": "كلمتا المرور غير متطابقتين",
+    "name_required": "من فضلك أدخل اسمك",
+    "phone_required": "من فضلك أدخل رقم هاتفك",
+    "phone_invalid": "من فضلك أدخل رقم هاتف صحيحًا",
+    "avatar_required": "من فضلك اختر صورة رمزية"
+  },
+  "messages": {
+    "login_success": "تم تسجيل الدخول بنجاح",
+    "google_login_success": "تم تسجيل الدخول باستخدام جوجل بنجاح",
+    "register_success": "تم إنشاء الحساب بنجاح",
+    "reset_email_sent": "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني",
+    "select_avatar": "الرجاء اختيار صورة شخصية"
+  }
 }
