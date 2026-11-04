@@ -1,0 +1,150 @@
+import 'package:collection/collection.dart';
+class Movie {
+  int? id;
+  String? url;
+  String? imdbCode;
+  String? title;
+  String? titleEnglish;
+  String? titleLong;
+  String? slug;
+  int? year;
+  double? rating;
+  int? runtime;
+  List<String>? genres;
+  String? summary;
+  String? descriptionFull;
+  String? synopsis;
+  String? ytTrailerCode;
+  String? language;
+  String? mpaRating;
+  String? backgroundImage;
+  String? backgroundImageOriginal;
+  String? smallCoverImage;
+  String? mediumCoverImage;
+  String? largeCoverImage;
+  String? state;
+  String? dateUploaded;
+  int? dateUploadedUnix;
+
+  Movie({
+    this.id,
+    this.url,
+    this.imdbCode,
+    this.title,
+    this.titleEnglish,
+    this.titleLong,
+    this.slug,
+    this.year,
+    this.rating,
+    this.runtime,
+    this.genres,
+    this.summary,
+    this.descriptionFull,
+    this.synopsis,
+    this.ytTrailerCode,
+    this.language,
+    this.mpaRating,
+    this.backgroundImage,
+    this.backgroundImageOriginal,
+    this.smallCoverImage,
+    this.mediumCoverImage,
+    this.largeCoverImage,
+    this.state,
+    this.dateUploaded,
+    this.dateUploadedUnix,
+  });
+
+  factory Movie.fromJson(Map<String, dynamic> json) => Movie(
+    id: json['id'] as int?,
+    url: json['url'] as String?,
+    imdbCode: json['imdb_code'] as String?,
+    title: json['title'] as String?,
+    titleEnglish: json['title_english'] as String?,
+    titleLong: json['title_long'] as String?,
+    slug: json['slug'] as String?,
+    year: json['year'] as int?,
+    rating: (json['rating'] as num?)?.toDouble(),
+    runtime: json['runtime'] as int?,
+    genres: (json['genres'] as List<dynamic>?)
+        ?.map((e) => e.toString())
+        .toList(),
+    summary: json['summary'] as String?,
+    descriptionFull: json['description_full'] as String?,
+    synopsis: json['synopsis'] as String?,
+    ytTrailerCode: json['yt_trailer_code'] as String?,
+    language: json['language'] as String?,
+    mpaRating: json['mpa_rating'] as String?,
+    backgroundImage: json['background_image'] as String?,
+    backgroundImageOriginal: json['background_image_original'] as String?,
+    smallCoverImage: json['small_cover_image'] as String?,
+    mediumCoverImage: json['medium_cover_image'] as String?,
+    largeCoverImage: json['large_cover_image'] as String?,
+    state: json['state'] as String?,
+    dateUploaded: json['date_uploaded'] as String?,
+    dateUploadedUnix: json['date_uploaded_unix'] as int?,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'url': url,
+    'imdb_code': imdbCode,
+    'title': title,
+    'title_english': titleEnglish,
+    'title_long': titleLong,
+    'slug': slug,
+    'year': year,
+    'rating': rating,
+    'runtime': runtime,
+    'genres': genres,
+    'summary': summary,
+    'description_full': descriptionFull,
+    'synopsis': synopsis,
+    'yt_trailer_code': ytTrailerCode,
+    'language': language,
+    'mpa_rating': mpaRating,
+    'background_image': backgroundImage,
+    'background_image_original': backgroundImageOriginal,
+    'small_cover_image': smallCoverImage,
+    'medium_cover_image': mediumCoverImage,
+    'large_cover_image': largeCoverImage,
+    'state': state,
+    'date_uploaded': dateUploaded,
+    'date_uploaded_unix': dateUploadedUnix,
+  };
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    if (other is! Movie) return false;
+    final mapEquals = const DeepCollectionEquality().equals;
+    return mapEquals(other.toJson(), toJson());
+  }
+
+  @override
+  int get hashCode =>
+      id.hashCode ^
+      url.hashCode ^
+      imdbCode.hashCode ^
+      title.hashCode ^
+      titleEnglish.hashCode ^
+      titleLong.hashCode ^
+      slug.hashCode ^
+      year.hashCode ^
+      rating.hashCode ^
+      runtime.hashCode ^
+      genres.hashCode ^
+      summary.hashCode ^
+      descriptionFull.hashCode ^
+      synopsis.hashCode ^
+      ytTrailerCode.hashCode ^
+      language.hashCode ^
+      mpaRating.hashCode ^
+      backgroundImage.hashCode ^
+      backgroundImageOriginal.hashCode ^
+      smallCoverImage.hashCode ^
+      mediumCoverImage.hashCode ^
+      largeCoverImage.hashCode ^
+      state.hashCode ^
+      dateUploaded.hashCode ^
+      dateUploadedUnix.hashCode;
+}

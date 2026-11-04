@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/widgets/error_message_widget.dart';
+import 'package:movie_app/modules/auth/presentation/screens/Register/register_screen.dart';
+import 'package:movie_app/modules/auth/presentation/screens/forget_password/forget_password_screen.dart';
+import 'package:movie_app/modules/auth/presentation/screens/login/login_screen.dart';
 import 'package:movie_app/modules/layout/browse/presentation/screens/browse_screen.dart';
 import 'package:movie_app/modules/layout/home/presentation/screens/home_screen.dart';
 import 'package:movie_app/modules/layout/layout_screen.dart';
@@ -25,6 +28,18 @@ class AppRouter {
       GoRoute(
         path: RouteName.onBoarding,
         builder: (context, state) => const OnboardingScreen(),
+      ),
+      GoRoute(
+        path: RouteName.login,
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: RouteName.register,
+        builder: (context, state) => const RegisterScreen(),
+      ),
+      GoRoute(
+        path: RouteName.forgetPassword,
+        builder: (context, state) => const ForgetPasswordScreen(),
       ),
       GoRoute(
         path: RouteName.layout,

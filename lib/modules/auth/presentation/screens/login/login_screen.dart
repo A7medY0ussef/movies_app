@@ -165,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xffF6BD00),
-                          foregroundColor: AppColors.surface,
+                          foregroundColor: AppColors.grey,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
@@ -255,7 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xffF6BD00),
-                          foregroundColor: AppColors.surface,
+                          foregroundColor: AppColors.grey,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
