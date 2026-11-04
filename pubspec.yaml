@@ -24,6 +24,12 @@ dependencies:
   flutter_screenutil_plus: ^1.6.0
   injectable: ^3.0.0
   easy_localization: ^3.0.8
+  firebase_core: ^5.1.0
+  firebase_auth: ^7.0.1
+  cloud_firestore: ^7.1.0
+  google_sign_in: ^7.2.0
+
+
 
 dev_dependencies:
   flutter_test:
@@ -36,11 +42,11 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
     - assets/logo/
     - assets/icons/
     - assets/images/home_images/
     - assets/images/movie_details/
+    - assets/images/
     - assets/translations/
 
 
