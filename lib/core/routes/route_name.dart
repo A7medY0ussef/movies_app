@@ -15,4 +15,6 @@ abstract class RouteName {
   static const String movieDetailsPath = '$movieDetails/:$movieIdParam';
 
   static String movieDetailsWithId(int id) => '$movieDetails/$id';
+
+  static const String updateProfile = '/updateProfile';
 }

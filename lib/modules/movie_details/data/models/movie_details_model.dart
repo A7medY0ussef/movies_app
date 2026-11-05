@@ -81,6 +81,7 @@ class MovieDetailsModel {
       id: id ?? 0,
       title: title ?? '',
       backgroundImage: backgroundImage ?? '',
+      posterImage: mediumCoverImage ?? largeCoverImage ?? '',
       rating: rating ?? 0,
       runtime: runtime ?? 0,
       likeCount: likeCount ?? 0,

@@ -53,4 +53,9 @@ abstract class Assets {
   static const String avatar9Icon = "assets/icons/avatar_9.png";
   static const String nameIcon = "assets/icons/name_icon.png";
   static const String forgetPassword = "assets/images/forget_password.png";
+  static const String watchListIcon = "assets/icons/watch_list_icon.png";
+  static const String historyIcon = "assets/icons/history_icon.png";
+  static const String popcorn = "assets/images/popcorn.png";
+  static const String phoneIconProfile = "assets/icons/phone_icon_profile.png";
+  static const String nameIconProfile = "assets/icons/name_icon_profile.png";
 }

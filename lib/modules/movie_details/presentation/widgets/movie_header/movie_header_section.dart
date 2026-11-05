@@ -27,7 +27,7 @@ class MovieHeaderSection extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              HeaderAppBar(),
+              HeaderAppBar(movie: movie),
               Spacer(),
               Image.asset(Assets.startWatch),
               Spacer(),

@@ -11,6 +11,7 @@ import 'package:movie_app/modules/movie_details/presentation/screens/movie_detai
 import 'package:movie_app/modules/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:movie_app/modules/onboarding/presentation/screens/start_screen.dart';
 import 'package:movie_app/modules/splash/presentation/screens/splash_screen.dart';
+import 'package:movie_app/modules/update_profile/presentation/screens/update_profile_screen.dart';
 import 'route_name.dart';
 
 class AppRouter {
@@ -66,6 +67,10 @@ class AppRouter {
           }
           return MovieDetails(movieId: id);
         },
+      ),
+      GoRoute(
+        path: RouteName.updateProfile,
+        builder: (context, state) => const UpdateProfileScreen(),
       ),
     ],
   );

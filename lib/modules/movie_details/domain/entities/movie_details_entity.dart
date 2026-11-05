@@ -4,6 +4,7 @@ class MovieDetailsEntity {
   final int id;
   final String title;
   final String backgroundImage;
+  final String posterImage;
   final double rating;
   final int runtime;
   final int likeCount;
@@ -18,6 +19,7 @@ class MovieDetailsEntity {
     required this.id,
     required this.title,
     required this.backgroundImage,
+    this.posterImage = '',
     required this.rating,
     required this.runtime,
     required this.likeCount,
@@ -26,6 +28,6 @@ class MovieDetailsEntity {
     required this.screenshots,
     required this.genres,
     required this.cast,
-    required this.year
+    required this.year,
   });
 }

@@ -4,6 +4,7 @@ import 'package:movie_app/core/di/service_locator.dart';
 import 'package:movie_app/core/widgets/back_button_overlay.dart';
 import 'package:movie_app/core/widgets/error_message_widget.dart';
 import 'package:movie_app/core/widgets/loading_widget.dart';
+import 'package:movie_app/modules/layout/profile/data/data_source/profile_remote_data_source.dart';
 import 'package:movie_app/modules/movie_details/presentation/manager/movie_details_cubit.dart';
 import 'package:movie_app/modules/movie_details/presentation/manager/movie_details_state.dart';
 import 'package:movie_app/modules/movie_details/presentation/widgets/cast_list/cast_list_section.dart';
@@ -22,7 +23,24 @@ class MovieDetails extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<MovieDetailsCubit>()..getMovieDetails(movieId),
       child: Scaffold(
-        body: BlocBuilder<MovieDetailsCubit, MovieDetailsState>(
+        body: BlocConsumer<MovieDetailsCubit, MovieDetailsState>(
+          listener: (context, state) {
+            if (state is MovieDetailsSuccess) {
+              String poster = state.movie.posterImage;
+              if (poster.isEmpty || poster.contains('background.jpg')) {
+                poster = state.movie.backgroundImage.replaceAll('background.jpg', 'medium-cover.jpg');
+              }
+
+              ProfileRemoteDataSource().addToHistory(
+                id: state.movie.id,
+                title: state.movie.title,
+                rating: state.movie.rating,
+                imageUrl: poster,
+              ).catchError((e) {
+                debugPrint('Error adding to history: $e');
+              });
+            }
+          },
           builder: (context, state) {
             if (state is MovieDetailsSuccess) {
               return SafeArea(
@@ -33,13 +51,13 @@ class MovieDetails extends StatelessWidget {
                     children: [
                       MovieHeaderSection(movie: state.movie),
                       ScreenshotsSection(screenshots: state.movie.screenshots),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       SimilarMoviesSection(movieId: movieId),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       SummarySection(summary: state.movie.descriptionFull),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       CastListSection(cast: state.movie.cast),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       GenresChipsSection(genres: state.movie.genres),
                     ],
                   ),
