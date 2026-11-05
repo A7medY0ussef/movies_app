@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/constants/assets.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
@@ -30,10 +31,8 @@ class ProfileTabBar extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Watch List',
-                  style: AppText.s20w4.copyWith(
-                    color: AppColors.white,
-                  ),
+                  'profile.watch_list'.tr(),
+                  style: AppText.s20w4.copyWith(color: AppColors.white),
                 ),
                 const SizedBox(height: 8),
                 Container(
@@ -58,10 +57,8 @@ class ProfileTabBar extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'History',
-                  style: AppText.s20w4.copyWith(
-                    color: AppColors.white,
-                  ),
+                  'profile.history'.tr(),
+                  style: AppText.s20w4.copyWith(color: AppColors.white),
                 ),
                 const SizedBox(height: 8),
                 Container(

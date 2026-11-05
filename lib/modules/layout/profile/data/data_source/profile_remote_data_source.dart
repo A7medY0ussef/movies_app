@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:movie_app/core/errors/error_mapper.dart';
 import 'package:movie_app/modules/auth/data/models/user_model.dart';
 import 'package:movie_app/modules/layout/profile/data/models/saved_movie_model.dart';
 
@@ -19,13 +20,13 @@ class ProfileRemoteDataSource {
     final user = firebaseAuth.currentUser;
 
     if (user == null) {
-      throw Exception('No user is logged in');
+      throw const AppException('errors.no_user');
     }
 
     final doc = await firestore.collection('users').doc(user.uid).get();
 
     if (!doc.exists || doc.data() == null) {
-      throw Exception('User profile not found');
+      throw const AppException('errors.profile_not_found');
     }
 
     return UserModel.fromMap(
@@ -42,7 +43,7 @@ class ProfileRemoteDataSource {
     final user = firebaseAuth.currentUser;
 
     if (user == null) {
-      throw Exception('No user is logged in');
+      throw const AppException('errors.no_user');
     }
 
     await firestore.collection('users').doc(user.uid).update({
@@ -174,7 +175,7 @@ class ProfileRemoteDataSource {
     required String imageUrl,
   }) async {
     final user = firebaseAuth.currentUser;
-    if (user == null) throw Exception('No user is logged in');
+    if (user == null) throw const AppException('errors.no_user');
 
     final docRef = firestore
         .collection('users')

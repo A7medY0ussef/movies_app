@@ -75,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 if (state is AuthFailure) {
                   CustomSnackBar.show(
                     context,
-                    message: state.message,
+                    message: state.message.tr(),
                     type: SnackBarType.error,
                   );
                 }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/errors/error_mapper.dart';
 import 'package:movie_app/modules/auth/domain/entities/user_entity.dart';
 import 'package:movie_app/modules/layout/profile/data/data_source/profile_remote_data_source.dart';
 import 'package:movie_app/modules/layout/profile/domain/entities/saved_movie_entity.dart';
@@ -66,7 +67,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         }
       });
     } catch (e) {
-      emit(ProfileFailure(e.toString()));
+      emit(ProfileFailure(mapErrorToKey(e)));
     }
   }
 
@@ -92,7 +93,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         watchlist: _watchlist,
       ));
     } catch (e) {
-      emit(ProfileFailure(e.toString()));
+      emit(ProfileFailure(mapErrorToKey(e)));
     }
   }
 

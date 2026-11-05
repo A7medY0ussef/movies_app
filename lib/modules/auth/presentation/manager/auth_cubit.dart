@@ -1,9 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/use_cases/google_login_use_case.dart';
 import '../../domain/use_cases/login_use_case.dart';
 import '../../domain/use_cases/register_use_case.dart';
 import '../../domain/use_cases/forget_password_use_case.dart';
+import 'package:movie_app/core/errors/error_mapper.dart';
+
 import 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -38,7 +40,7 @@ class AuthCubit extends Cubit<AuthState> {
         ),
       );
     } catch (e) {
-      emit(AuthFailure(e.toString()));
+      emit(AuthFailure(mapErrorToKey(e)));
     }
   }
 
@@ -53,7 +55,7 @@ class AuthCubit extends Cubit<AuthState> {
         messageType: AuthMessageType.googleLoginSuccess,
       ));
     } catch (e) {
-      emit(AuthFailure(e.toString()));
+      emit(AuthFailure(mapErrorToKey(e)));
     }
   }
 
@@ -84,8 +86,7 @@ class AuthCubit extends Cubit<AuthState> {
       );
       debugPrint('AuthSuccess emitted');
     } catch (e) {
-      emit(AuthFailure(e.toString()));
-
+      emit(AuthFailure(mapErrorToKey(e)));
     }
   }
 
@@ -103,7 +104,7 @@ class AuthCubit extends Cubit<AuthState> {
         ),
       );
     } catch (e) {
-      emit(AuthFailure(e.toString()));
+      emit(AuthFailure(mapErrorToKey(e)));
     }
   }
 }

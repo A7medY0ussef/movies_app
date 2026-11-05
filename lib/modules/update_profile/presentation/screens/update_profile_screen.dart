@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:movie_app/modules/update_profile/presentation/widgets/delete_account_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -92,7 +93,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
             onPressed: () => context.pop(),
           ),
           title: Text(
-            'Pick Avatar',
+            'update_profile.title'.tr(),
             style: AppText.s16w6.copyWith(color: AppColors.yellow),
           ),
           centerTitle: true,
@@ -117,7 +118,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
             if (state is UpdateProfileSuccess) {
               CustomSnackBar.show(
                 context,
-                message: 'Profile updated successfully!',
+                message: 'update_profile.updated_success'.tr(),
                 type: SnackBarType.success,
               );
               context.pop(true);
@@ -126,7 +127,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
             if (state is DeleteAccountSuccess) {
               CustomSnackBar.show(
                 context,
-                message: 'Account deleted successfully',
+                message: 'update_profile.deleted_success'.tr(),
                 type: SnackBarType.info,
               );
               context.go(RouteName.login);
@@ -135,7 +136,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
             if (state is UpdateProfileFailure) {
               CustomSnackBar.show(
                 context,
-                message: state.message,
+                message: state.message.tr(),
                 type: SnackBarType.error,
               );
             }
@@ -170,7 +171,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       style: const TextStyle(color: AppColors.white),
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Name is required';
+                          return 'update_profile.name_required'.tr();
                         }
                         return null;
                       },
@@ -227,7 +228,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       style: const TextStyle(color: AppColors.white),
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Phone number is required';
+                          return 'update_profile.phone_required'.tr();
                         }
                         return null;
                       },
@@ -284,9 +285,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                         onPressed: () {
                           context.push(RouteName.forgetPassword);
                         },
-                        child: const Text(
-                          'Reset Password',
-                          style: TextStyle(
+                        child: Text(
+                          'update_profile.reset_password'.tr(),
+                          style: const TextStyle(
                             color: AppColors.white,
                             fontSize: 16,
                           ),
@@ -311,7 +312,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                             ? null
                             : () => _confirmDeleteAccount(context),
                         child: Text(
-                          'Delete Account',
+                          'update_profile.delete_account'.tr(),
                           style: AppText.s16wB.copyWith(
                             color: AppColors.white,
                           ),
@@ -353,7 +354,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                 ),
                               )
                             : Text(
-                                'Update Data',
+                          'update_profile.update_data'.tr(),
                                 style: AppText.s16wB.copyWith(
                                   color: AppColors.background,
                                 ),
