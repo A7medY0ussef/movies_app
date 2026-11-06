@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/modules/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/routes/route_name.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -14,22 +16,24 @@ class SplashScreen extends StatelessWidget {
             Expanded(
               child: Center(
                 child: ElasticIn(
-                  duration: Duration(seconds: 2),
+                  duration: const Duration(seconds: 2),
                   child: Image.asset('assets/logo/app_logo.png'),
                 ),
               ),
             ),
             FadeInUp(
-              delay: Duration(seconds: 2),
+              delay: const Duration(seconds: 2),
               child: Image.asset('assets/logo/route_logo.png'),
             ),
             FadeInUp(
-              delay: Duration(seconds: 2),
+              delay: const Duration(seconds: 2),
               onFinish: (direction) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => OnboardingScreen()),
-                );
+                final user = FirebaseAuth.instance.currentUser;
+                if (user != null) {
+                  context.go(RouteName.layout);
+                } else {
+                  context.go(RouteName.onBoarding);
+                }
               },
               child: Image.asset('assets/logo/Supervised by Mohamed Nabil.png'),
             ),

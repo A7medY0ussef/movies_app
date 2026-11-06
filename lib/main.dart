@@ -1,9 +1,34 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:movie_app/core/di/service_locator.dart';
+import 'package:movie_app/core/routes/app_router.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
-import 'package:movie_app/modules/splash/presentation/screens/splash_screen.dart';
+import 'package:movie_app/firebase_options.dart';
+import 'modules/auth/auth_dependencies.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await EasyLocalization.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  await GoogleSignIn.instance.initialize();
+
+  setupServiceLocator();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,10 +36,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.dark,
-      home: SplashScreen(),
+    return ScreenUtilPlusInit(
+      designSize: const Size(430, 932),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return BlocProvider(
+          create: (context) => createAuthCubit(),
+          child: MaterialApp.router(
+            key: ValueKey(context.locale),
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.dark,
+            routerConfig: AppRouter.router,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+          ),
+        );
+      },
     );
   }
 }

@@ -1,0 +1,45 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:movie_app/core/theme/app_colors.dart';
+import 'package:movie_app/core/theme/app_text_style.dart';
+import 'package:movie_app/modules/movie_details/presentation/widgets/genres_chips/custom_genres.dart';
+
+class GenresChipsSection extends StatelessWidget {
+  final List<String> genres;
+  const GenresChipsSection({super.key, required this.genres});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'details.genres'.tr(),
+              style: AppText.s24w6.copyWith(color: AppColors.white),
+            ),
+            SizedBox(height: 4),
+            GridView.builder(
+              padding: EdgeInsets.zero,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: genres.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 12,
+                childAspectRatio: 122 / 36,
+              ),
+              itemBuilder: (context, index) =>  CustomGenres(
+               genre: genres[index],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

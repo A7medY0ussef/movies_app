@@ -1,0 +1,149 @@
+{
+  "common": {
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish",
+    "see_more": "See More"
+  },
+  "start": {
+    "title": "Find Your Next\nFavorite Movie Here",
+    "subtitle": "Get access to a huge library of movies to suit all tastes. You will surely like it.",
+    "explore_now": "Explore Now"
+  },
+  "onboarding": {
+    "discover_title": "Discover Movies",
+    "discover_desc": "Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.",
+    "genres_title": "Explore All Genres",
+    "genres_desc": "Discover movies from every genre, in all available qualities. Find something new and exciting to watch every day.",
+    "watchlist_title": "Create Watchlists",
+    "watchlist_desc": "Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.",
+    "review_title": "Rate, Review, and Learn",
+    "review_desc": "Share your thoughts on the movies you've watched. Dive deep into film details and help others discover great movies with your reviews.",
+    "start_title": "Start Watching Now"
+  },
+  "nav": {
+    "home": "Home",
+    "search": "Search",
+    "browse": "Browse",
+    "profile": "Profile"
+  },
+  "home": {
+    "action": "Action"
+  },
+  "details": {
+    "watch": "Watch",
+    "summary": "Summary",
+    "no_summary": "No summary available",
+    "screenshots": "Screen Shots",
+    "similar": "Similar",
+    "cast": "Cast",
+    "cast_name": "Name: {}",
+    "cast_character": "Character: {}",
+    "genres": "Genres"
+  },
+  "search": {
+    "hint": "Search",
+    "no_results": "No movies found"
+  },
+  "genres_list": {
+    "Animation": "Animation",
+    "Adventure": "Adventure",
+    "Action": "Action",
+    "Crime": "Crime",
+    "Comedy": "Comedy",
+    "Biography": "Biography",
+    "Family": "Family",
+    "Drama": "Drama",
+    "Documentary": "Documentary",
+    "Game-Show": "Game-Show",
+    "Film-Noir": "Film-Noir",
+    "Fantasy": "Fantasy",
+    "Music": "Music",
+    "Horror": "Horror",
+    "History": "History",
+    "News": "News",
+    "Mystery": "Mystery",
+    "Musical": "Musical",
+    "Sci-Fi": "Sci-Fi",
+    "Romance": "Romance",
+    "Reality-TV": "Reality-TV",
+    "Talk-Show": "Talk-Show",
+    "Sport": "Sport",
+    "Short": "Short",
+    "Western": "Western",
+    "War": "War",
+    "Thriller": "Thriller"
+  },
+  "errors": {
+    "network": "Please check your internet connection and try again",
+    "server": "Something went wrong on the server. Please try again later",
+    "unknown": "Something went wrong. Please try again",
+    "invalid_email": "The email address is not valid",
+    "invalid_credentials": "Incorrect email or password",
+    "email_in_use": "This email is already registered",
+    "weak_password": "The password is too weak",
+    "user_disabled": "This account has been disabled",
+    "too_many_requests": "Too many attempts. Please try again later",
+    "requires_recent_login": "Please log in again to complete this action",
+    "google_cancelled": "Google sign-in was cancelled",
+    "no_user": "No user is logged in",
+    "profile_not_found": "User profile not found"
+  },
+"auth":{
+  "email": "Email",
+  "password": "Password",
+  "forget_password": "Forget Password ?",
+  "login": "Login",
+  "dont_have_account": "Don't Have Account ?",
+  "create_one": "Create One",
+  "or": "OR",
+  "login_with_google": "Login With Google",
+  "register": "Register",
+  "name": "Name",
+  "confirm_password": "Confirm Password",
+  "phone_number": "Phone Number",
+  "create_account": "Create Account",
+  "already_have_account": "Already Have Account?",
+  "verify_email": "Verify Email",
+  "forget_password_for_app_Bar": "Forget Password"
+},
+  "validation": {
+    "email_required": "Please enter your email",
+    "email_invalid": "Please enter a valid email",
+    "password_required": "Please enter your password",
+    "password_min": "Password must be at least 6 characters",
+    "confirm_password_required": "Please confirm your password",
+    "passwords_not_match": "Passwords do not match",
+    "name_required": "Please enter your name",
+    "phone_required": "Please enter your phone number",
+    "phone_invalid": "Please enter a valid phone number",
+    "avatar_required": "Please select an avatar"
+  },
+  "messages": {
+    "login_success": "Login successful",
+    "google_login_success": "Google login successful",
+    "register_success": "Account created successfully",
+    "reset_email_sent": "Password reset email sent successfully",
+    "select_avatar": "Please select an avatar"
+  },
+  "profile": {
+    "watch_list": "Watch List",
+    "history": "History",
+    "edit_profile": "Edit Profile",
+    "exit": "Exit",
+    "no_history": "No history yet"
+  },
+  "update_profile": {
+    "title": "Edit Profile",
+    "name_required": "Name is required",
+    "phone_required": "Phone number is required",
+    "reset_password": "Reset Password",
+    "delete_account": "Delete Account",
+    "update_data": "Update Data",
+    "updated_success": "Profile updated successfully!",
+    "deleted_success": "Account deleted successfully",
+    "delete_confirm_message": "Are you sure you want to delete your account? This action cannot be undone.",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  }
+}
