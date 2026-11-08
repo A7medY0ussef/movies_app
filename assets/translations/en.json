@@ -39,7 +39,9 @@
     "cast": "Cast",
     "cast_name": "Name: {}",
     "cast_character": "Character: {}",
-    "genres": "Genres"
+    "genres": "Genres",
+    "addedToWatchList": "Added to Watch List",
+    "removedFromWatchList": "Removed from Watch List"
   },
   "search": {
     "hint": "Search",

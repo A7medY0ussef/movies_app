@@ -39,7 +39,9 @@
     "cast": "طاقم التمثيل",
     "cast_name": "الاسم: {}",
     "cast_character": "الشخصية: {}",
-    "genres": "التصنيفات"
+    "genres": "التصنيفات",
+    "addedToWatchList": "تمت الإضافة إلى قائمة المشاهدة",
+    "removedFromWatchList": "تمت الإزالة من قائمة المشاهدة"
   },
   "search": {
     "hint": "بحث",
