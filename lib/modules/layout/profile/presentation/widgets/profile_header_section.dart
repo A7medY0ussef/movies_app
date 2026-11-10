@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,8 +33,8 @@ class ProfileHeaderSection extends StatelessWidget {
               backgroundColor: AppColors.grey,
               backgroundImage: user.avatarPath.isNotEmpty
                   ? (user.avatarPath.startsWith('http')
-                      ? NetworkImage(user.avatarPath) as ImageProvider
-                      : AssetImage(user.avatarPath))
+                        ? NetworkImage(user.avatarPath) as ImageProvider
+                        : AssetImage(user.avatarPath))
                   : const NetworkImage(
                       'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png',
                     ),
@@ -47,16 +48,12 @@ class ProfileHeaderSection extends StatelessWidget {
                     children: [
                       Text(
                         wishListCount.toString(),
-                        style: AppText.s36wB.copyWith(
-                          color: AppColors.white,
-                        ),
+                        style: AppText.s36wB.copyWith(color: AppColors.white),
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'Wish List',
-                        style: AppText.s24wB.copyWith(
-                          color: AppColors.white,
-                        ),
+                        'profile.watch_list'.tr(),
+                        style: AppText.s24wB.copyWith(color: AppColors.white),
                       ),
                     ],
                   ),
@@ -64,16 +61,12 @@ class ProfileHeaderSection extends StatelessWidget {
                     children: [
                       Text(
                         historyCount.toString(),
-                        style: AppText.s36wB.copyWith(
-                          color: AppColors.white,
-                        ),
+                        style: AppText.s36wB.copyWith(color: AppColors.white),
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'History',
-                        style: AppText.s24wB.copyWith(
-                          color: AppColors.white,
-                        ),
+                        'profile.history'.tr(),
+                        style: AppText.s24wB.copyWith(color: AppColors.white),
                       ),
                     ],
                   ),
@@ -83,12 +76,7 @@ class ProfileHeaderSection extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 12),
-        Text(
-          user.name,
-          style: AppText.s20wB.copyWith(
-            color: AppColors.white,
-          ),
-        ),
+        Text(user.name, style: AppText.s20wB.copyWith(color: AppColors.white)),
         const SizedBox(height: 16),
         Row(
           children: [
@@ -108,14 +96,12 @@ class ProfileHeaderSection extends StatelessWidget {
                     context.read<ProfileCubit>().getProfile();
                   }
                 },
-                child:  Text(
-                  'Edit Profile',
-                  style: AppText.s20w4.copyWith(
-                    color: AppColors.background
-    )
-                  ),
+                child: Text(
+                  'profile.edit_profile'.tr(),
+                  style: AppText.s20w4.copyWith(color: AppColors.background),
                 ),
               ),
+            ),
 
             const SizedBox(width: 12),
             Expanded(
@@ -134,21 +120,15 @@ class ProfileHeaderSection extends StatelessWidget {
                     context.go(RouteName.login);
                   }
                 },
-                child:  Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Exit',
-                      style: AppText.s20w4.copyWith(
-                      color: AppColors.white
-                      )
-                      ),
-                    SizedBox(width: 4),
-                    Icon(
-                      Icons.exit_to_app,
-                      color: AppColors.white,
-                      size: 20,
+                      'profile.exit'.tr(),
+                      style: AppText.s20w4.copyWith(color: AppColors.white),
                     ),
+                    SizedBox(width: 4),
+                    Icon(Icons.exit_to_app, color: AppColors.white, size: 20),
                   ],
                 ),
               ),

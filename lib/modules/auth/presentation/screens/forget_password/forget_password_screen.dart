@@ -64,7 +64,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
             if (state is AuthFailure) {
               CustomSnackBar.show(
                 context,
-                message: state.message,
+                message: state.message.tr(),
                 type: SnackBarType.error,
               );
             }

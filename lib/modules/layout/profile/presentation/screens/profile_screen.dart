@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
@@ -38,7 +39,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               } else if (state is ProfileFailure) {
                 return Center(
                   child: Text(
-                    state.message,
+                    state.message.tr(),
                     style: const TextStyle(color: AppColors.red),
                   ),
                 );

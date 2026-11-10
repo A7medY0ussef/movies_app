@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
@@ -67,8 +68,8 @@ class _HeaderAppBarState extends State<HeaderAppBar> {
         CustomSnackBar.show(
           context,
           message: isSaved
-              ? 'Added to Watch List'
-              : 'Removed from Watch List',
+              ? 'details.addedToWatchList'.tr()
+              : 'details.removedFromWatchList'.tr(),
           type: isSaved ? SnackBarType.success : SnackBarType.info,
         );
       }

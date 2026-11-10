@@ -75,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 if (state is AuthFailure) {
                   CustomSnackBar.show(
                     context,
-                    message: state.message,
+                    message: state.message.tr(),
                     type: SnackBarType.error,
                   );
                 }
@@ -173,7 +173,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                       CustomTextFormField(
                         controller: phoneController,
-                        prefixIcon: Assets.passwordIcon,
+                        prefixIcon: Assets.phoneIconProfile,
                         hintText: 'auth.phone_number'.tr(),
                         isPassword: false,
                         validator: (value) {
